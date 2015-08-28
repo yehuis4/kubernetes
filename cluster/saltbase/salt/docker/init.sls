@@ -18,7 +18,7 @@ bridge-utils:
     - mode: 644
     - makedirs: true
 
-{% if grains.os == 'Fedora' and grains.osrelease_info[0] >= 22 %}
+{% if (grains.os == 'Fedora' and grains.osrelease_info[0] >= 22) or (grains.os == 'CentOS') %}
 
 docker:
   pkg:
