@@ -40,6 +40,7 @@ Kubernetes Deployment On Bare-metal Ubuntu Nodes
         - [Configure and start the Kubernetes cluster](#configure-and-start-the-kubernetes-cluster)
         - [Deploy addons](#deploy-addons)
         - [Trouble Shooting](#trouble-shooting)
+    - [Upgrading a Cluster](#upgrading-a-cluster)
 
 ## Introduction
 
@@ -224,6 +225,16 @@ Please try:
 
 4. You can also customize your own settings in `/etc/default/{component_name}` after configured success.
 
+### Upgrading a Cluster
+
+   If you want to upgrade a k8s cluster, you just need to run `$ ./kubernetes/cluster/kube-push.sh`.The scrpit will download the latest version of k8s,and replace all the kubernetes's binaries of cluster's nodes.
+   The format of upgrade command is like this: ```./kube-push.sh [-m|-n <node id>] <version>```
+   Updates Kubernetes binaries. Can be done for all components (by default), master(-m) or specified node(-n).
+   If the version is not specified will try to use local binaries. Warning: upgrading single node is experimental. Some examples are as followes:
+   upgrade master:    `./kube-push.sh -m 1.0.4`
+   upgrade node:      `./kube-push.sh -n 192.0.0.2 1.0.4` (the id is the node's name)
+   upgrade all nodes: `./kube-push.sh 1.0.4`
+   The script will not delete your data of cluster, it just replace the binaries.
 
 <!-- BEGIN MUNGE: GENERATED_ANALYTICS -->
 [![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/docs/getting-started-guides/ubuntu.md?pixel)]()
