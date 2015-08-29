@@ -237,10 +237,10 @@ It seems useful to split this into multiple sets of sub use cases:
    which feature sets like private networks, load balancing,
    persistent disks, data snapshots etc are typically consistent and
    explicitly designed to inter-operate).
-   1.1. within the same geographical region (e.g. metro) within which network
+   1. within the same geographical region (e.g. metro) within which network
    is fast and cheap enough to be almost analogous to a single data
    center.
-   1.1. across multiple geographical regions, where high network cost and
+   1. across multiple geographical regions, where high network cost and
    poor network performance may be prohibitive.
 1. Multiple cloud providers (typically with inconsistent feature sets,
    more limited interoperability, and typically no cheap inter-cluster
@@ -440,6 +440,7 @@ to be able to:
 
 There is of course a lot of detail still missing from this section,
 including discussion of:
+
 1. admission control,
 1. initial placement of instances of a new
 service vs scheduling new instances of an existing service in response
